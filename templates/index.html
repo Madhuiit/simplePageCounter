@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1>Counter App</h1>
+  <p>Current Count: {{counter}}</p>
+  <form method ='POST' action="/">
+    <button type="submit"> Increment Counter</button>
+  </form>
+  <p>Refresh the page or click the button to increment the counter!</p>
+
+  {% endblock %}

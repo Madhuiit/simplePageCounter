@@ -1,0 +1,20 @@
+from flask import Flask , render_template,request,session
+app = Flask(__name__)
+
+app.secret_key = "12345678" # requered for session manangement
+
+@app.route('/' , methods = ['GET','POST'])
+def counter():
+    #intialize counter in session if it doesnt exist
+    if 'counter' not in session:
+        session['counter'] =0
+    #handle POST request (button click)
+    if request.method == 'POST':
+        session['counter']+=1
+    #handle GET request (page visit)
+
+    else:
+        session['counter']+=1 # increment on page Refresh
+    return render_template('index.html',counter=session['counter']) 
+if __name__ == '__main__':
+    app.run(debug=True)
